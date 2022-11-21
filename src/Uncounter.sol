@@ -3,7 +3,7 @@ pragma solidity ^0.8.13;
 
 import { CounterLib} from "./CounterLib.sol";
 
-contract Counter {
+contract Uncounter {
 
     using CounterLib for uint256;
     uint256 public number;
@@ -16,7 +16,8 @@ contract Counter {
         number = newNumber;
     }
 
-    function increment() public {
-        number++;
+    function decrement() public {
+        require(number > 0, "invalid");
+        number--;
     }
 }
